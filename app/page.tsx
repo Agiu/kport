@@ -20,6 +20,7 @@ import {
   SOCIAL_LINKS,
 } from './data'
 
+
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
   visible: {
@@ -148,28 +149,35 @@ export default function Personal() {
         transition={TRANSITION_SECTION}
       >
         <h3 className="mb-5 text-lg font-medium">Selected Projects</h3>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          {PROJECTS.map((project) => (
-            <div key={project.name} className="space-y-2">
-              <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50">
-                <ProjectVideo src={project.video} />
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-1">
+            {PROJECTS.map((project) => (
+              <div key={project.name} className="space-y-2">
+                <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50 group overflow-hidden">
+                  <ProjectVideo src={project.video} />
+                  <div
+                    className="
+                      absolute bottom-0 left-0 w-full h-1/4
+                      bg-black/70 backdrop-blur-lg border border-white/10
+                      opacity-0 transition-opacity duration-300
+                      rounded-b-2xl p-4 group-hover:opacity-100
+                      flex flex-col justify-center
+                    "
+                  >
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-lg font-semibold text-white "
+                    >
+                      {project.name}
+                    </a>
+                    <p className="text-sm text-white mt-1">{project.description}</p>
+                  </div>
+                </div>
               </div>
-              <div className="px-1">
-                <a
-                  className="font-base group relative inline-block font-[450] text-zinc-900 dark:text-zinc-50"
-                  href={project.link}
-                  target="_blank"
-                >
-                  {project.name}
-                  <span className="absolute bottom-0.5 left-0 block h-[1px] w-full max-w-0 bg-zinc-900 dark:bg-zinc-50 transition-all duration-200 group-hover:max-w-full"></span>
-                </a>
-                <p className="text-base text-zinc-600 dark:text-zinc-400">
-                  {project.description}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+
       </motion.section>
 
       <motion.section
@@ -187,10 +195,10 @@ export default function Personal() {
               key={job.id}
             >
               <Spotlight
-                className="from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-zinc-100 dark:via-zinc-200 dark:to-zinc-50"
+                className={`from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-${job.color} dark:via-${job.color} dark:to-${job.color}`}
                 size={64}
               />
-              <div className="relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-zinc-950">
+            <div className={`relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-${job.bgColor} `}>
                 <div className="relative flex w-full flex-row justify-between">
                   <div>
                     <h4 className="font-normal dark:text-zinc-100">

@@ -20,6 +20,8 @@ import {
   SOCIAL_LINKS,
 } from './data'
 
+import { useRef, useState } from 'react'
+
 
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
@@ -45,6 +47,19 @@ type ProjectVideoProps = {
 }
 
 function ProjectVideo({ src }: ProjectVideoProps) {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [hovered, setHovered] = useState(false)
+
+  const handleMouseEnter = () => {
+    setHovered(true)
+    videoRef.current?.play()
+  }
+
+  const handleMouseLeave = () => {
+    setHovered(false)
+    videoRef.current?.pause()
+  }
+
   return (
     <MorphingDialog
       transition={{
@@ -54,13 +69,19 @@ function ProjectVideo({ src }: ProjectVideoProps) {
       }}
     >
       <MorphingDialogTrigger>
-        <video
-          src={src}
-          autoPlay
-          loop
-          muted
-          className="aspect-video w-full cursor-zoom-in rounded-xl"
-        />
+        <div
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <video
+            ref={videoRef}
+            src={src}
+            muted
+            loop
+            playsInline
+            className="aspect-video w-full cursor-zoom-in rounded-xl"
+          />
+        </div>
       </MorphingDialogTrigger>
       <MorphingDialogContainer>
         <MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">

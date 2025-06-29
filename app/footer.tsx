@@ -23,6 +23,7 @@ const THEMES_OPTIONS = [
   },
 ]
 
+{/*
 function ThemeSwitch() {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
@@ -65,20 +66,23 @@ function ThemeSwitch() {
     </AnimatedBackground>
   )
 }
+*/}
 
 export function Footer() {
   return (
     <footer className="mt-24 border-t border-zinc-100 px-0 py-4 dark:border-zinc-800">
       <div className="flex items-center justify-between">
-        <a href="https://github.com/ibelick/nim" target="_blank">
+        <a href="https://nextjs.org/" target="_blank">
           <TextLoop className="text-xs text-zinc-500">
             <span>© 2025 Caleb Aguiar (Built off of Nim) </span>
             <span>Built with Next.js</span>
           </TextLoop>
         </a>
+        {/*
         <div className="text-xs text-zinc-400">
           <ThemeSwitch />
         </div>
+        */}
       </div>
     </footer>
   )

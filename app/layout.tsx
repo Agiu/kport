@@ -46,11 +46,12 @@ export default function RootLayout({
       <body
         className={`${IBM_plex_400.variable} ${IBM_plex_700.variable} bg-white tracking-tight antialiased dark:bg-zinc-950`}
       >
+        {/*Im just keeping this here in case I wanna switch the themes */}
         <ThemeProvider
-          enableSystem={false}
+          enableSystem={true}
           attribute="class"
           storageKey="theme"
-          defaultTheme="Dark"
+          defaultTheme="dark"
         >
           <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-ibm-plex-sans)]">
             <div className="relative mx-auto w-full max-w-screen-md flex-1 px-4 pt-20">

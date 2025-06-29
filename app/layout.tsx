@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Geist, Geist_Mono, IBM_Plex_Sans} from 'next/font/google'
 import './globals.css'
 import { Header } from './header'
 import { Footer } from './footer'
@@ -23,14 +23,17 @@ export const metadata: Metadata = {
   description:  'This is a portfolio for Caleb Aguiar',
 };
 
-const geist = Geist({
-  variable: '--font-geist',
-  subsets: ['latin'],
+
+const IBM_plex_400 = IBM_Plex_Sans({
+  variable: '--font-ibm-plex-sans',
+  subsets: ['cyrillic'],
+  weight: '400',
 })
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+const IBM_plex_700 = IBM_Plex_Sans({
+  variable: '--font-ibm-plex-sans',
+  subsets: ['cyrillic'],
+  weight: '700',
 })
 
 export default function RootLayout({
@@ -41,16 +44,16 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geist.variable} ${geistMono.variable} bg-white tracking-tight antialiased dark:bg-zinc-950`}
+        className={`${IBM_plex_400.variable} ${IBM_plex_700.variable} bg-white tracking-tight antialiased dark:bg-zinc-950`}
       >
         <ThemeProvider
-          enableSystem={true}
+          enableSystem={false}
           attribute="class"
           storageKey="theme"
-          defaultTheme="system"
+          defaultTheme="Dark"
         >
-          <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-inter-tight)]">
-            <div className="relative mx-auto w-full max-w-screen-sm flex-1 px-4 pt-20">
+          <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-ibm-plex-sans)]">
+            <div className="relative mx-auto w-full max-w-screen-md flex-1 px-4 pt-20">
               <Header />
               {children}
               <Footer />

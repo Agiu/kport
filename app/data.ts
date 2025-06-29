@@ -72,8 +72,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     {
     company: 'Trinity university',
     title: 'UX Designer Intern',
-    start: 'May 2025',
-    end: 'Present',
+    start: 'Dec 2024',
+    end: 'May 2025',
     link: 'https://trinity.edu',
     id: 'work2',
     color: 'red-600',

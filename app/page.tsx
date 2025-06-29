@@ -159,12 +159,13 @@ export default function Personal() {
       >
         <div className="flex-1">
           <p className="text-zinc-600 dark:text-zinc-400">
-            Focused on creating intuitive and performant web experiences.
-            Bridging the gap between design and development.
+            Hey, super glad you're here! Peruse around, this is where my portfolio and interests live.
+            I attended <a href='https://www.trinity.edu/' target='_blank' className='dark:text-zinc-200'><br />Trinity University</a> 
+            &nbsp;for my <i>Computer Science</i> undergrad and the <a href='https://www.washington.edu/' target='_blank' className='dark:text-zinc-200'> University of Washington </a> for my <i>Masters in Human Computer Interaction + Design. </i>
           </p>
         </div>
       </motion.section>
-
+{/*
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
@@ -200,7 +201,7 @@ export default function Personal() {
           </div>
 
       </motion.section>
-
+*/}
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
@@ -208,18 +209,20 @@ export default function Personal() {
         <h3 className="mb-5 text-lg font-medium">Work Experience</h3>
         <div className="flex flex-col space-y-2">
           {WORK_EXPERIENCE.map((job) => (
-            <a
-              className="relative overflow-hidden rounded-2xl bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+            <motion.a
+              whileHover={{ scale: 1.03 }}
+              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+              className="relative overflow-hidden  bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
               href={job.link}
               target="_blank"
               rel="noopener noreferrer"
               key={job.id}
             >
               <Spotlight
-                className={`from-zinc-900 via-zinc-800 to-zinc-700 blur-2xl dark:from-${job.color} dark:via-${job.color} dark:to-${job.color}`}
-                size={64}
+                className={`from-zinc-900 via-zinc-800 to-zinc-700 blur-3xl dark:from-${job.color} dark:via-${job.color} dark:to-${job.color}`}
+                size={500}
               />
-            <div className={`relative h-full w-full rounded-[15px] bg-white p-4 dark:bg-${job.bgColor} `}>
+            <div className={`relative h-full w-full bg-white p-4 dark:bg-${job.bgColor} `}>
                 <div className="relative flex w-full flex-row justify-between">
                   <div>
                     <h4 className="font-normal dark:text-zinc-100">
@@ -234,7 +237,7 @@ export default function Personal() {
                   </p>
                 </div>
               </div>
-            </a>
+            </motion.a>
           ))}
         </div>
       </motion.section>
@@ -247,17 +250,18 @@ export default function Personal() {
         <div className="flex flex-col space-y-0">
           <AnimatedBackground
             enableHover
-            className="h-full w-full rounded-lg bg-zinc-100 dark:bg-zinc-900/80"
+            className="h-full w-full bg-zinc-100 dark:bg-zinc-900/80"
             transition={{
               type: 'spring',
               bounce: 0,
-              duration: 0.2,
+              duration: 0.4,
             }}
           >
+            
             {BLOG_POSTS.map((post) => (
               <Link
                 key={post.uid}
-                className="-mx-3 rounded-xl px-3 py-3"
+                className="-mx-3 px-3 py-3"
                 href={post.link}
                 data-id={post.uid}
               >
@@ -265,7 +269,7 @@ export default function Personal() {
                   <h4 className="font-normal dark:text-zinc-100">
                     {post.title}
                   </h4>
-                  <p className="text-zinc-500 dark:text-zinc-400">
+                  <p className="text-zinc-500 dark:text-zinc-600">
                     {post.description}
                   </p>
                 </div>

@@ -3,6 +3,8 @@ import { motion } from 'motion/react'
 import { XIcon } from 'lucide-react'
 import { Spotlight } from '@/components/ui/spotlight'
 import { Magnetic } from '@/components/ui/magnetic'
+import { Tilt } from '@/components/motion-primitives/tilt'
+import { ProgressiveBlur } from '@/components/motion-primitives/progressive-blur'
 import {
   MorphingDialog,
   MorphingDialogTrigger,
@@ -42,25 +44,14 @@ const TRANSITION_SECTION = {
   duration: 0.3,
 }
 
-type ProjectVideoProps = {
+type ProjectImageProps = {
   src: string
 }
 
-function ProjectVideo({ src }: ProjectVideoProps) {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [hovered, setHovered] = useState(false)
-
-  const handleMouseEnter = () => {
-    setHovered(true)
-    videoRef.current?.play()
-  }
-
-  const handleMouseLeave = () => {
-    setHovered(false)
-    videoRef.current?.pause()
-  }
+function ProjectImage({ src }: ProjectImageProps) {
 
   return (
+    
     <MorphingDialog
       transition={{
         type: 'spring',
@@ -68,48 +59,20 @@ function ProjectVideo({ src }: ProjectVideoProps) {
         duration: 0.3,
       }}
     >
+
       <MorphingDialogTrigger>
-        <div
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-        >
-          <video
-            ref={videoRef}
+
+          <img
             src={src}
-            muted
-            loop
-            playsInline
-            className="aspect-video w-full cursor-zoom-in rounded-xl"
+            alt="Project preview"
+            className="w-full aspect-video"
           />
-        </div>
+
       </MorphingDialogTrigger>
-      <MorphingDialogContainer>
-        <MorphingDialogContent className="relative aspect-video rounded-2xl bg-zinc-50 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950 dark:ring-zinc-800/50">
-          <video
-            src={src}
-            autoPlay
-            loop
-            muted
-            className="aspect-video h-[50vh] w-full rounded-xl md:h-[70vh]"
-          />
-        </MorphingDialogContent>
-        <MorphingDialogClose
-          className="fixed top-6 right-6 h-fit w-fit rounded-full bg-white p-1"
-          variants={{
-            initial: { opacity: 0 },
-            animate: {
-              opacity: 1,
-              transition: { delay: 0.3, duration: 0.1 },
-            },
-            exit: { opacity: 0, transition: { duration: 0 } },
-          }}
-        >
-          <XIcon className="h-5 w-5 text-zinc-500" />
-        </MorphingDialogClose>
-      </MorphingDialogContainer>
     </MorphingDialog>
   )
 }
+
 
 function MagneticSocialLink({
   children,
@@ -157,7 +120,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <div className="flex-1">
+        <div className="flex-1 border-b border-zinc-600 pb-10">
           <p className="text-zinc-600 dark:text-zinc-400">
             Hey, super glad you're here! Peruse around, this is where my portfolio and interests live.
             I attended <a href='https://www.trinity.edu/' target='_blank' className='dark:text-zinc-200'><br />Trinity University</a> 
@@ -165,43 +128,46 @@ export default function Personal() {
           </p>
         </div>
       </motion.section>
-{/*
+
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
         <h3 className="mb-5 text-lg font-medium">Selected Projects</h3>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-1">
+            
             {PROJECTS.map((project) => (
-              <div key={project.name} className="space-y-2">
-                <div className="relative rounded-2xl bg-zinc-50/40 p-1 ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50 group overflow-hidden">
-                  <ProjectVideo src={project.video} />
-                  <div
-                    className="
-                      absolute bottom-0 left-0 w-full h-1/4
-                      bg-black/70 backdrop-blur-lg border border-white/10
-                      opacity-0 transition-opacity duration-300
-                      rounded-b-2xl p-4 group-hover:opacity-100
-                      flex flex-col justify-center
-                    "
-                  >
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-lg font-semibold text-white "
+              <Tilt key={project.id} rotationFactor={2} isRevese>
+                <div key={project.name} className="space-y-2">
+                  <div className="relative bg-zinc-50/40  ring-1 ring-zinc-200/50 ring-inset dark:bg-zinc-950/40 dark:ring-zinc-800/50 group overflow-hidden">
+                      <ProjectImage src={project.image} />
+                    <div
+                      className="
+                        absolute bottom-0 left-0 w-full h-1/4
+                        bg-black/70 backdrop-blur-md border border-white/10
+                        opacity-0 transition-opacity duration-400
+                         p-4 group-hover:opacity-100
+                        flex flex-col justify-center
+                      "
                     >
-                      {project.name}
-                    </a>
-                    <p className="text-sm text-white mt-1">{project.description}</p>
+                      <a
+                        href={project.link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-lg font-semibold text-white "
+                      >
+                        {project.name}
+                      </a>
+                      <p className="text-sm text-white mt-1">{project.description}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Tilt>
             ))}
           </div>
 
       </motion.section>
-*/}
+      
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}

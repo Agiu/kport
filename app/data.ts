@@ -2,7 +2,7 @@ type Project = {
   name: string
   description: string
   link: string
-  video: string
+  image: string
   id: string
 }
 
@@ -35,24 +35,24 @@ export const PROJECTS: Project[] = [
     description:
       'A Large liberal arts school asked me to help redesign some parts of their main site.',
     link: 'https://pro.motion-primitives.com/',
-    video:
-      'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/newProfileItem/d898be8a-7037-4c71-af0c-8997239b050d.mp4?_a=DATAdtAAZAA0',
+    image:
+      'https://download.cdn-shop.com/media/web_images/my/blog/article-80/abstract-art-on-canvas-2.webp',
     id: 'project1',
   },
   {
     name: 'Project 2',
     description: 'UI kit to make beautiful, animated interfaces.',
     link: 'https://motion-primitives.com/',
-    video:
-      'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
+    image:
+      'https://images.pexels.com/photos/4793397/pexels-photo-4793397.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     id: 'project2',
   },
     {
     name: 'Project 3',
     description: 'UI kit to make beautiful, animated interfaces.',
     link: 'https://motion-primitives.com/',
-    video:
-      'https://res.cloudinary.com/read-cv/video/upload/t_v_b/v1/1/profileItems/W2azTw5BVbMXfj7F53G92hMVIn32/XSfIvT7BUWbPRXhrbLed/ee6871c9-8400-49d2-8be9-e32675eabf7e.mp4?_a=DATAdtAAZAA0',
+    image:
+      'https://images.squarespace-cdn.com/content/v1/577e85abc534a5d5bcf943d2/1472153172370-JYVTR0APODH1QL9QQXF2/image-asset.jpeg',
     id: 'project3',
   },
 
@@ -62,7 +62,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'Trinity university',
     title: 'UX Designer',
-    start: 'May 2025',
+    start: "May '25",
     end: 'Present',
     link: 'https://trinity.edu',
     id: 'work1',
@@ -72,8 +72,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     {
     company: 'Trinity university',
     title: 'UX Designer Intern',
-    start: 'Dec 2024',
-    end: 'May 2025',
+    start: "Dec '24",
+    end: "May '25",
     link: 'https://trinity.edu',
     id: 'work2',
     color: 'red-600',
@@ -82,8 +82,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'ForeFlight: A Boeing Company',
     title: 'Software Engineer Intern',
-    start: 'May 2024',
-    end: 'Aug 2024',
+    start: "May '24",
+    end: "Aug '24",
     link: 'https://ForeFlight.com',
     id: 'work3',
     color: 'blue-600',
@@ -92,8 +92,8 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   {
     company: 'Spend With Us',
     title: 'Software Developer Intern',
-    start: 'Feb 2024',
-    end: 'June 2024',
+    start: "Feb '24",
+    end: "June '24",
     link: 'https://www.spendwithus.com.au/',
     id: 'work4',
     color: 'green-500',

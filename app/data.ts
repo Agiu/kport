@@ -33,23 +33,23 @@ export const PROJECTS: Project[] = [
   {
     name: 'Higher Ed Site Redesign',
     description:
-      'A Large liberal arts school asked me to help redesign some parts of their main site.',
+      'A prominent liberal arts school asked me to help redesign some parts of their main site.',
     link: 'https://pro.motion-primitives.com/',
     image:
-      'https://download.cdn-shop.com/media/web_images/my/blog/article-80/abstract-art-on-canvas-2.webp',
+      '/p_1.JPG',
     id: 'project1',
   },
   {
-    name: 'Project 2',
-    description: 'UI kit to make beautiful, animated interfaces.',
+    name: 'Trinity University Search',
+    description: 'Sitewide search implementation needed a new look.',
     link: 'https://motion-primitives.com/',
     image:
-      'https://images.pexels.com/photos/4793397/pexels-photo-4793397.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      '/p_2.png',
     id: 'project2',
   },
     {
-    name: 'Project 3',
-    description: 'UI kit to make beautiful, animated interfaces.',
+    name: 'Animal Advocacy Through Virtual Reality',
+    description: 'Design and programming work created at the University of Sydney.',
     link: 'https://motion-primitives.com/',
     image:
       'https://images.squarespace-cdn.com/content/v1/577e85abc534a5d5bcf943d2/1472153172370-JYVTR0APODH1QL9QQXF2/image-asset.jpeg',

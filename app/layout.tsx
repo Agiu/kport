@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     default: 'Caleb Aguiar - Portfolio',
     template: '%s | Nim'
   },
-  description:  'This is a portfolio for Caleb Aguiar',
+  description:  'Product Designer - Caleb Aguiar',
 };
 
 
@@ -54,7 +54,7 @@ export default function RootLayout({
           defaultTheme="dark"
         >
           <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-ibm-plex-sans)]">
-            <div className="relative mx-auto w-full max-w-screen-md flex-1 px-4 pt-20">
+            <div className="relative mx-auto w-full max-w-250 flex-1 px-4 pt-20">
               <Header />
               {children}
               <Footer />

@@ -125,7 +125,7 @@ export default function Personal() {
           <p className="text-zinc-600 dark:text-zinc-400">
             Hey, super glad you're here! Peruse around, this is where my portfolio and interests live.
             I attended <a href='https://www.trinity.edu/' target='_blank' className='dark:text-zinc-200'><br />Trinity University</a> 
-            &nbsp;for my <i>Computer Science</i> undergrad and the <a href='https://www.washington.edu/' target='_blank' className='dark:text-zinc-200'> University of Washington </a> for my <i>Masters in Human Computer Interaction + Design. </i>
+            &nbsp;for my <i>Computer Science</i> undergrad and the <a href='https://www.washington.edu/' target='_blank' className='dark:text-zinc-200'> University of Washington </a> for my <br/> <i>Masters in Human Computer Interaction + Design. </i>
           </p>
         </div>
       </motion.section>

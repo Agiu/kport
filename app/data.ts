@@ -70,7 +70,7 @@ export const VIDEOS: Video[] = [
   {
     name: 'blah 1',
     description:
-      'A prominent liberal arts school asked me to help redesign some parts of their main site_',
+      'bleep',
     link: 'https://www.figma.com/deck/9hiIS5UvcTzBjwu7Hdkz7P/Trinity-UX-Redesign?node-id=1-42&t=SwMKkwf4R8OScebm-1',
     image:
       '/p_1.JPG',

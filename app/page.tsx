@@ -16,6 +16,7 @@ import Link from 'next/link'
 import { AnimatedBackground } from '@/components/ui/animated-background'
 import {
   PROJECTS,
+  VIDEOS,
   WORK_EXPERIENCE,
   BLOG_POSTS,
   EMAIL,
@@ -202,47 +203,45 @@ export default function Personal() {
         </div>
       </motion.section>
 
-<motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+    <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
         <h3 className="mb-5 text-lg font-medium">Selected Videos_</h3>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 ">
-          {PROJECTS.map((project) => (
-            <div key={project.name} className="space-y-2 grayscale-100 hover:grayscale-0 duration-300 transition-all">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols- ">
+          {VIDEOS.map((video) => (
+            <div key={video.name} className="space-y-2 grayscale-100 hover:grayscale-0 duration-300 transition-all">
               <motion.a
-                href={project.link}
+                href={video.link}
                 target="_blank"
                 rel="noreferrer"
-                aria-label={`Open ${project.name}`}
+                aria-label={`Open ${video.name}`}
                 className="  block group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 border border-zinc-200/60 dark:border-zinc-800/60 "
                 whileHover={{ scale: 0.99, y: -1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
 
-                <motion.div
-                  className="relative overflow-hidden bg-zinc-50/40 ring-1 ring-inset ring-zinc-200/50 
-                            dark:bg-zinc-950/40 dark:ring-zinc-800/50 lg:h-100 "
-                >
-                  <div className='h-100px'>
-                    <ProjectImage src={project.image}/>
-                  </div>
-                 
-
                   <div
                     className="
-                      absolute bottom-0 left-0 w-full 
-                      p-6 flex gap-1.5 flex-col justify-center
-                      bg-rose-700 
+                      
+                      p-6  
+                      bg-blue-700 
                     "
                   >
-                    <h4 className=" text-3xl font-bold text-white  ">
-                      {project.name}
-                    </h4>
-                    <p className="  text-white ">{project.description}</p>
-                    
+                    <div className='flex flex-col gap-1.5 w-1/2'>
+                      <div>
+                        <h4 className=" text-3xl font-bold text-white  ">
+                          {video.name}
+                        </h4>
+                      </div>
+                      <div className='bottom-10  '>
+                        <p className="  text-white ">{video.description}</p>
+                      </div>
+                    </div>
+
+                    <div>
                     {/* HOVER ARROW (east) */}
                       <motion.div
                         className="
-                          absolute right-6 top-1/2 -translate-y-0 -translate-x-3
+                          absolute right-6 top-1/2 -translate-x-3 -translate-y-3
                           opacity-0 group-hover:opacity-100 transition-opacity duration-300
                           pointer-events-none
                         "
@@ -266,9 +265,8 @@ export default function Personal() {
                           <path d="M13 5l7 7-7 7" />
                         </svg>
                       </motion.div>
+                      </div>
                   </div>
-
-                </motion.div>
               </motion.a>
             </div>
           ))}

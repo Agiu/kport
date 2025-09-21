@@ -11,7 +11,7 @@ export function Header() {
         </Link>
         <TextScramble
           duration={1}
-          className="text-zinc-600 dark:text-sky-500"
+          className="text-zinc-600 dark:text-rose-500"
         >
           Product Designer
         </TextScramble>

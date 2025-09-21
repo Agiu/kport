@@ -33,26 +33,26 @@ export const PROJECTS: Project[] = [
   {
     name: 'Higher Ed Site Redesign',
     description:
-      'A prominent liberal arts school asked me to help redesign some parts of their main site.',
-    link: 'https://pro.motion-primitives.com/',
+      'A prominent liberal arts school asked me to help redesign some parts of their main site_',
+    link: 'https://www.figma.com/deck/9hiIS5UvcTzBjwu7Hdkz7P/Trinity-UX-Redesign?node-id=1-42&t=SwMKkwf4R8OScebm-1',
     image:
       '/p_1.JPG',
     id: 'project1',
   },
   {
     name: 'Trinity University Search',
-    description: 'Sitewide search implementation needed a new look.',
-    link: 'https://motion-primitives.com/',
+    description: 'Sitewide search implementation needed a new look_',
+    link: 'https://www.figma.com/design/GXBBaodKgwj4SOgDDWU8sz/Trinity-Design-Work?node-id=8-144&t=wtRXNndwh1NrzBnX-1',
     image:
       '/p_2.png',
     id: 'project2',
   },
     {
     name: 'Animal Advocacy Through Virtual Reality',
-    description: 'Design and programming work created at the University of Sydney.',
-    link: 'https://motion-primitives.com/',
+    description: 'Design and programming work created at the University of Sydney_',
+    link: 'https://youtu.be/jLWcoMTBHGM',
     image:
-      'https://images.squarespace-cdn.com/content/v1/577e85abc534a5d5bcf943d2/1472153172370-JYVTR0APODH1QL9QQXF2/image-asset.jpeg',
+      '/p_3.JPG',
     id: 'project3',
   },
 

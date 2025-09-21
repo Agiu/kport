@@ -6,6 +6,14 @@ type Project = {
   id: string
 }
 
+type Video = {
+  name: string
+  description: string
+  link: string
+  image: string
+  id: string
+}
+
 type WorkExperience = {
   company: string
   title: string
@@ -54,6 +62,43 @@ export const PROJECTS: Project[] = [
     image:
       '/p_3.JPG',
     id: 'project3',
+  },
+
+]
+
+export const VIDEOS: Video[] = [
+  {
+    name: 'blah 1',
+    description:
+      'A prominent liberal arts school asked me to help redesign some parts of their main site_',
+    link: 'https://www.figma.com/deck/9hiIS5UvcTzBjwu7Hdkz7P/Trinity-UX-Redesign?node-id=1-42&t=SwMKkwf4R8OScebm-1',
+    image:
+      '/p_1.JPG',
+    id: 'project1',
+  },
+  {
+    name: 'blah 2',
+    description: 'Sitewide search implementation needed a new look_',
+    link: 'https://www.figma.com/design/GXBBaodKgwj4SOgDDWU8sz/Trinity-Design-Work?node-id=8-144&t=wtRXNndwh1NrzBnX-1',
+    image:
+      '/p_2.png',
+    id: 'project2',
+  },
+    {
+    name: 'blah 3',
+    description: 'Design and programming work created at the University of Sydney_',
+    link: 'https://youtu.be/jLWcoMTBHGM',
+    image:
+      '/p_3.JPG',
+    id: 'project3',
+  },
+      {
+    name: 'blah 4',
+    description: 'Design and programming work created at the University of Sydney_',
+    link: 'https://youtu.be/jLWcoMTBHGM',
+    image:
+      '/p_3.JPG',
+    id: 'project4',
   },
 
 ]

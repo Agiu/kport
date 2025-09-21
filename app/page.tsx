@@ -202,7 +202,78 @@ export default function Personal() {
         </div>
       </motion.section>
 
+<motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+        <h3 className="mb-5 text-lg font-medium">Selected Videos_</h3>
 
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 ">
+          {PROJECTS.map((project) => (
+            <div key={project.name} className="space-y-2 grayscale-100 hover:grayscale-0 duration-300 transition-all">
+              <motion.a
+                href={project.link}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`Open ${project.name}`}
+                className="  block group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 border border-zinc-200/60 dark:border-zinc-800/60 "
+                whileHover={{ scale: 0.99, y: -1 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              >
+
+                <motion.div
+                  className="relative overflow-hidden bg-zinc-50/40 ring-1 ring-inset ring-zinc-200/50 
+                            dark:bg-zinc-950/40 dark:ring-zinc-800/50 lg:h-100 "
+                >
+                  <div className='h-100px'>
+                    <ProjectImage src={project.image}/>
+                  </div>
+                 
+
+                  <div
+                    className="
+                      absolute bottom-0 left-0 w-full 
+                      p-6 flex gap-1.5 flex-col justify-center
+                      bg-rose-700 
+                    "
+                  >
+                    <h4 className=" text-3xl font-bold text-white  ">
+                      {project.name}
+                    </h4>
+                    <p className="  text-white ">{project.description}</p>
+                    
+                    {/* HOVER ARROW (east) */}
+                      <motion.div
+                        className="
+                          absolute right-6 top-1/2 -translate-y-0 -translate-x-3
+                          opacity-0 group-hover:opacity-100 transition-opacity duration-300
+                          pointer-events-none
+                        "
+                        // smooth left-right wiggle
+                        animate={{ x: [0, 8, 0] }}
+                        transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut' }}
+                        style={{ willChange: 'transform' }}
+                      >
+                        <svg
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth={1.5}
+                          strokeLinecap="square"
+                          strokeLinejoin="inherit"
+                          aria-hidden="true"
+                          className="w-7 h-7 text-white mix-blend-exclusion"
+                        >
+                          {/* ArrowRight: line + chevron */}
+                          <path d="M4 12h14" />
+                          <path d="M13 5l7 7-7 7" />
+                        </svg>
+                      </motion.div>
+                  </div>
+
+                </motion.div>
+              </motion.a>
+            </div>
+          ))}
+        </div>
+      </motion.section>
       
       <motion.section
         variants={VARIANTS_SECTION}

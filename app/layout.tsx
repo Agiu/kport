@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono, IBM_Plex_Sans} from 'next/font/google'
+import { Geist, Geist_Mono, IBM_Plex_San, Golos_Text, Gabarito} from 'next/font/google'
 import './globals.css'
 import { Header } from './header'
 import { Footer } from './footer'
@@ -24,15 +24,15 @@ export const metadata: Metadata = {
 };
 
 
-const IBM_plex_400 = IBM_Plex_Sans({
+const IBM_plex_400 = Gabarito({
   variable: '--font-ibm-plex-sans',
-  subsets: ['cyrillic'],
+  subsets: ['latin'],
   weight: '400',
 })
 
-const IBM_plex_700 = IBM_Plex_Sans({
+const IBM_plex_700 = Gabarito({
   variable: '--font-ibm-plex-sans',
-  subsets: ['cyrillic'],
+  subsets: ['latin'],
   weight: '700',
 })
 
@@ -44,7 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${IBM_plex_400.variable} ${IBM_plex_700.variable} bg-white tracking-tight antialiased dark:bg-zinc-950`}
+        className={`${IBM_plex_400.variable} ${IBM_plex_700.variable} bg-white tracking-tight antialiased dark:bg-zinc-900`}
       >
         {/*Im just keeping this here in case I wanna switch the themes */}
         <ThemeProvider

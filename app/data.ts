@@ -70,35 +70,35 @@ export const VIDEOS: Video[] = [
   {
     name: 'blah 1',
     description:
-      'bleep',
+      'Design and programming work created at the University of Sydney',
     link: 'https://www.figma.com/deck/9hiIS5UvcTzBjwu7Hdkz7P/Trinity-UX-Redesign?node-id=1-42&t=SwMKkwf4R8OScebm-1',
     image:
       '/p_1.JPG',
-    id: 'project1',
+    id: 'Video 2',
   },
   {
     name: 'blah 2',
-    description: 'Sitewide search implementation needed a new look_',
+    description: 'Sitewide search implementation needed a new look',
     link: 'https://www.figma.com/design/GXBBaodKgwj4SOgDDWU8sz/Trinity-Design-Work?node-id=8-144&t=wtRXNndwh1NrzBnX-1',
     image:
       '/p_2.png',
-    id: 'project2',
+    id: 'Video 2',
   },
     {
     name: 'blah 3',
-    description: 'Design and programming work created at the University of Sydney_',
+    description: 'Design and programming work created at the University of Sydney',
     link: 'https://youtu.be/jLWcoMTBHGM',
     image:
       '/p_3.JPG',
-    id: 'project3',
+    id: 'Video 3',
   },
       {
     name: 'blah 4',
-    description: 'Design and programming work created at the University of Sydney_',
+    description: 'Design and programming work created at the University of Sydney',
     link: 'https://youtu.be/jLWcoMTBHGM',
     image:
       '/p_3.JPG',
-    id: 'project4',
+    id: 'Video 4',
   },
 
 ]
@@ -112,7 +112,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     link: 'https://trinity.edu',
     id: 'work1',
     color: 'red-600',
-    bgColor: 'zinc-900'
+    bgColor: 'neutral-800'
   },
     {
     company: 'Trinity university',

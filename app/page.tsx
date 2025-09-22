@@ -142,7 +142,7 @@ export default function Personal() {
                 rel="noreferrer"
                 aria-label={`Open ${project.name}`}
                 className="  block group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 border border-zinc-200/60 dark:border-zinc-800/60 "
-                whileHover={{ scale: 0.99, y: -1 }}
+                whileHover={{ scale: 1.02, y: -1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
 
@@ -162,10 +162,10 @@ export default function Personal() {
                       bg-rose-700 
                     "
                   >
-                    <h4 className=" text-3xl font-bold text-white  ">
+                    <h4 className=" text-3xl font-bold text-zinc-100 ">
                       {project.name}
                     </h4>
-                    <p className="  text-white ">{project.description}</p>
+                    <p className="  text-zinc-100">{project.description}</p>
                     
                     {/* HOVER ARROW (east) */}
                       <motion.div
@@ -187,7 +187,7 @@ export default function Personal() {
                           strokeLinecap="square"
                           strokeLinejoin="inherit"
                           aria-hidden="true"
-                          className="w-7 h-7 text-white mix-blend-exclusion"
+                          className="w-7 h-7 text-zinc-100 mix-blend-exclusion"
                         >
                           {/* ArrowRight: line + chevron */}
                           <path d="M4 12h14" />
@@ -204,9 +204,9 @@ export default function Personal() {
       </motion.section>
 
     <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
-        <h3 className="mb-5 text-lg font-medium">Selected Videos_</h3>
+        <h3 className="mb-5 text-lg font-medium">Selected Mutlimedia_</h3>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols- ">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2  ">
           {VIDEOS.map((video) => (
             <div key={video.name} className="space-y-2 grayscale-100 hover:grayscale-0 duration-300 transition-all">
               <motion.a
@@ -215,25 +215,26 @@ export default function Personal() {
                 rel="noreferrer"
                 aria-label={`Open ${video.name}`}
                 className="  block group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 border border-zinc-200/60 dark:border-zinc-800/60 "
-                whileHover={{ scale: 0.99, y: -1 }}
+                whileHover={{ scale: 1.05, y: -1 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-
-                  <div
-                    className="
-                      
-                      p-6  
-                      bg-blue-700 
-                    "
-                  >
+                  <div className="p-6 bg-zinc-950 hover:bg-neutral-800 transition-all ease-in">
                     <div className='flex flex-col gap-1.5 w-1/2'>
                       <div>
-                        <h4 className=" text-3xl font-bold text-white  ">
+                        <h4 className=" text-3xl font-bold text-zinc-100">
                           {video.name}
                         </h4>
+                      <div>
+                        <h4 className="text-rose-500">+ {video.id} </h4>
+                      </div>
                       </div>
                       <div className='bottom-10  '>
-                        <p className="  text-white ">{video.description}</p>
+                        <p className="  text-rose-500 ">{video.description}</p>
+                      </div>
+                      <div>
+                        <h4 className="text-zinc-100 ">
+                          _
+                        </h4>
                       </div>
                     </div>
 
@@ -258,7 +259,7 @@ export default function Personal() {
                           strokeLinecap="square"
                           strokeLinejoin="inherit"
                           aria-hidden="true"
-                          className="w-7 h-7 text-white mix-blend-exclusion"
+                          className="w-7 h-7 text-zinc-100 mix-blend-exclusion"
                         >
                           {/* ArrowRight: line + chevron */}
                           <path d="M4 12h14" />
@@ -354,7 +355,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Connect</h3>
+        <h3 className="mb-5 text-lg font-medium">Connect_</h3>
         <p className="mb-5 text-zinc-600 dark:text-zinc-400">
           Feel free to contact me at{' '}
           <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>

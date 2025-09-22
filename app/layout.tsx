@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono, IBM_Plex_San, Golos_Text, Gabarito} from 'next/font/google'
+import { Geist, Geist_Mono, Golos_Text, Gabarito} from 'next/font/google'
 import './globals.css'
 import { Header } from './header'
 import { Footer } from './footer'

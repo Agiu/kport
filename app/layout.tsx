@@ -55,7 +55,7 @@ export default function RootLayout({
         >
           <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-ibm-plex-sans)]">
             <div className="relative mx-auto w-full max-w-250 flex-1 px-4 pt-20">
-              {/* <Header /> */}
+              <Header /> 
               {children}
               <Footer />
             </div>

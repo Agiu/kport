@@ -168,95 +168,9 @@ export default function Personal() {
       </motion.section>
       */}
       {/*transition panel*/}
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-4'> 
-        <div className='flex flex-col space-y-4'>
-          <header className="mb-8 flex items-center justify-between">
-            <div className='gap'>
-              <Link href="/" className="md:text-7xl text-black dark:text-white font-bold text-3xl ">
-                Hi, I'm Caleb_
-              </Link>
-              <TextScramble
-                duration={1}
-                className="text-zinc-600 dark:text-rose-500"
-              >
-                Product Designer and Software Engineer
-              </TextScramble>
-            </div>
-          </header>
-          <div className='md:w-full'>
-            <div className='mb-4 flex space-x-2'>
-              {TransitionPanelInfo.map((item, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveIndex(index)}
-                  className={`px-3 py-1 text-sm font-medium ${
-                    activeIndex === index
-                      ? 'bg-zinc-200 text-zinc-900 dark:bg-rose-500 dark:text-zinc-100'
-                      : 'bg-zinc-100 text-zinc-600 dark:bg-zinc-700 dark:text-zinc-400'
-                  }`}
-                >
-                  {item.title}
-                </button>
-              ))}
-            </div>
-            <div className='overflow-hidden border-t border-zinc-200 dark:border-zinc-700'>
-              <TransitionPanel
-                activeIndex={activeIndex}
-                transition={{ duration: 0.3, spring: 'easeInOut' }}
-                variants={{
-                  enter: { opacity: 0, y: -10, filter: 'blur(4px)' },
-                  center: { opacity: 1, y: 0, filter: 'blur(0px)' },
-                  exit: { opacity: 0, y: 10, filter: 'blur(4px)' },
-                }}
-              >
-                {TransitionPanelInfo.map((item, index) => (
-                  <div key={index} className='py-2'>
-                    <ul className="text-zinc-600 dark:text-zinc-400">{item.content}</ul>
-                    {Array.isArray(item.list) ? (
-                      <ul className="list-none pl-4">
-                        {item.list.map((line, idx) => (
-                          <li key={idx} className="relative before:content-['+'] before:absolute before:-left-4 before:text-rose-500 text-zinc-400">
-                            {line}
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p>{item.list}</p>
-                    )}
-                  </div>
-                ))}
-              </TransitionPanel>
-            </div>
-          </div>
-        </div>
+      
 
-        <div className='w-full' > 
-        <Cursor
-          attachToParent
-          variants={{
-            initial: { scale: 0.3, opacity: 0 },
-            animate: { scale: 1, opacity: 1 },
-            exit: { scale: 0.3, opacity: 0 },
-          }}
-          transition={{
-            ease: 'easeInOut',
-            duration: 0.3,
-          }}
-          className='left-12 top-4'
-        >
-          <div>
-            <MouseIcon className='h-6 w-6' />
-            <div className='ml-4 mt-1 bg-rose-500 px-2 py-0.5 text-neutral-50'>
-              Currently in Seattle
-            </div>
-          </div>
-        </Cursor>
-          <Image src="/Seattle.png" width={500} height={500} alt="Picture of the author" />
-        </div>
-        
-      </div>
-
-      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION} className="pt-25">
         <h3 className="mb-5 text-lg font-medium">Selected Projects_</h3>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 ">
@@ -285,7 +199,7 @@ export default function Personal() {
                     className="
                       absolute bottom-0 left-0 w-full 
                       p-6 flex gap-1.5 flex-col justify-center
-                      bg-rose-800 
+                      bg-rose-600 
                     "
                   >
                     <h4 className=" text-3xl font-bold text-zinc-100 ">

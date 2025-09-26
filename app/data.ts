@@ -74,7 +74,7 @@ export const VIDEOS: Video[] = [
     link: 'https://www.figma.com/deck/9hiIS5UvcTzBjwu7Hdkz7P/Trinity-UX-Redesign?node-id=1-42&t=SwMKkwf4R8OScebm-1',
     image:
       '/p_1.JPG',
-    id: 'Video 2',
+    id: 'Video 1',
   },
   {
     name: 'blah 2',
@@ -175,6 +175,10 @@ export const BLOG_POSTS: BlogPost[] = [
   },
 ]
 
+export const Seattle = 'public/Seattle.png';
+  
+
+
 export const SOCIAL_LINKS: SocialLink[] = [
   /*
   {
@@ -199,3 +203,33 @@ export const SOCIAL_LINKS: SocialLink[] = [
 ]
 
 export const EMAIL = 'kaelub.tech@gmail.com'
+
+
+export const TransitionPanelInfo = [
+    {
+      title: 'About_',
+      subtitle: 'Hobbyist & Creative',
+      content:
+        'Hey There! This is my entire portfolio and a few hobby stuff to express my interests. This website was inspired heavily by cyberpunk-like user interfaces, so take a gander?',
+    },
+    {
+      title: 'Education_',
+      subtitle: 'Narrative and Expression',
+      content: '',
+      list: [ 'University of Washington: MHCI+D', 
+              'Trinity University: BS in Computer Science',
+              'University of Sydney: Study Abroad (HCI Related)'
+      ],
+    },
+    {
+      title: 'Hobbies_',
+      subtitle: 'Mastering Motion Tools',
+      content: 
+        '',
+      list: [ 'Photography', 
+          'Motion Design',
+          'Music Composition & Production',
+
+      ],
+      },
+  ];

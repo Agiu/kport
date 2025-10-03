@@ -15,7 +15,7 @@ export function Header() {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     
-    <header className='grid grid-cols-1 md:grid-cols-2 gap-4'> 
+    <header className='grid grid-cols-1 md:grid-cols-2 gap-4 border-b-1 border-t-1 border-zinc-800 p-7'> 
         <div className='flex flex-col space-y-4'>
           <header className="mb-8 flex items-center justify-between">
             <div className='flex flex-col gap-2'>
@@ -52,9 +52,9 @@ export function Header() {
                 activeIndex={activeIndex}
                 transition={{ duration: 0.3, spring: 'easeInOut' }}
                 variants={{
-                  enter: { opacity: 0, y: -10, filter: 'blur(4px)' },
+                  enter: { opacity: 0, y: -20, filter: 'blur(0px)' },
                   center: { opacity: 1, y: 0, filter: 'blur(0px)' },
-                  exit: { opacity: 0, y: 10, filter: 'blur(4px)' },
+                  exit: { opacity: 0, y: 20, filter: 'blur(0px)' },
                 }}
               >
                 {TransitionPanelInfo.map((item, index) => (

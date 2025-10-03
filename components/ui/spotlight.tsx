@@ -63,9 +63,9 @@ export function Spotlight({
     <motion.div
       ref={containerRef}
       className={cn(
-        'pointer-events-none absolute rounded-full bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops),transparent_80%)] blur-xl transition-opacity duration-200',
+        'pointer-events-none absolute bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops),transparent_80%)] blur-xl transition-opacity duration-200',
         'from-zinc-50 via-zinc-100 to-zinc-200',
-        isHovered ? 'opacity-100' : 'opacity-0',
+        isHovered ? 'opacity-50' : 'opacity-0',
         className,
       )}
       style={{

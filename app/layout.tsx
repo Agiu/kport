@@ -23,7 +23,6 @@ export const metadata: Metadata = {
   description:  'Product Designer - Caleb Aguiar',
 };
 
-
 const IBM_plex_400 = Gabarito({
   variable: '--font-ibm-plex-sans',
   subsets: ['latin'],
@@ -46,7 +45,7 @@ export default function RootLayout({
       <body
         className={`${IBM_plex_400.variable} ${IBM_plex_700.variable} bg-white tracking-tight antialiased dark:bg-zinc-900`}
       >
-        {/*Im just keeping this here in case I wanna switch the themes */}
+        {/* Theme support */}
         <ThemeProvider
           enableSystem={true}
           attribute="class"
@@ -54,10 +53,23 @@ export default function RootLayout({
           defaultTheme="dark"
         >
           <div className="flex min-h-screen w-full flex-col font-[family-name:var(--font-ibm-plex-sans)]">
-            <div className="relative mx-auto w-full max-w-250 flex-1 px-4 pt-20">
-              <Header /> 
-              {children}
-              <Footer />
+            <div className="relative mx-auto w-full max-w-250 flex-1 px-4 ">
+              
+              {/* Subtle defense-style border frame */}
+              <div className="relative  border-zinc-800 border-l-1 border-r-1 pt-20">
+                
+                {/* Corner accents */}
+
+                <div className="absolute bottom-0 left-0 w-4 h-4 border-b-2 border-l-2 border-rose-500 " />
+                <div className="absolute bottom-0 right-0 w-4 h-4 border-b-2 border-r-2 border-rose-500 " />
+
+                {/* Main content */}
+                <Header />
+                <div className="p-6">
+                  {children}
+                </div>
+                <Footer />
+              </div>
             </div>
           </div>
         </ThemeProvider>

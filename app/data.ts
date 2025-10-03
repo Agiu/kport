@@ -111,7 +111,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: 'Present',
     link: 'https://trinity.edu',
     id: 'work1',
-    color: 'red-600',
+    color: 'rose-500',
     bgColor: 'neutral-800'
   },
     {
@@ -121,7 +121,7 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     end: "May '25",
     link: 'https://trinity.edu',
     id: 'work2',
-    color: 'red-600',
+    color: 'rose-500',
     bgColor: 'zinc-950'
   },
   {

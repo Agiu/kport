@@ -18,7 +18,10 @@ safelist: [
   'dark:via-green-500',
   'dark:to-green-500',
   'dark:from-green-500',
-  'dark:bg-neutral-800'
+  'dark:bg-neutral-800',
+  'dark:via-rose-500',
+  'dark:to-rose-500',
+  'dark:from-rose-500',
 ],
   theme: {
     extend: {},

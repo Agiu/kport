@@ -1,114 +1,56 @@
 'use client'
 import { motion } from 'motion/react'
-import { XIcon } from 'lucide-react'
 import { Spotlight } from '@/components/ui/spotlight'
 import { Magnetic } from '@/components/ui/magnetic'
-import { Tilt } from '@/components/motion-primitives/tilt'
-import { ProgressiveBlur } from '@/components/motion-primitives/progressive-blur'
 import {
   MorphingDialog,
   MorphingDialogTrigger,
-  MorphingDialogContent,
-  MorphingDialogClose,
-  MorphingDialogContainer,
 } from '@/components/ui/morphing-dialog'
 import Link from 'next/link'
-import { AnimatedBackground } from '@/components/ui/animated-background'
 import {
   PROJECTS,
   VIDEOS,
   WORK_EXPERIENCE,
-  BLOG_POSTS,
   EMAIL,
   SOCIAL_LINKS,
-  TransitionPanelInfo,
 } from './data'
 
-import Image from 'next/image'
-import { SVGProps, useRef, useState } from 'react'
-import { TransitionPanel } from '@/components/motion-primitives/transition-panel'
-import { TextScramble } from '@/components/ui/text-scramble'
-import { Cursor } from '@/components/motion-primitives/cursor'
+import { SVGProps, useState } from 'react'
 
-
+// Variants
 const VARIANTS_CONTAINER = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-    },
+    transition: { staggerChildren: 0.15 },
   },
 }
 
 const VARIANTS_SECTION = {
-  hidden: { opacity: 0, y: 20, filter: 'blur(8px)' },
+  hidden: { opacity: 0, y: 20, filter: 'blur(6px)' },
   visible: { opacity: 1, y: 0, filter: 'blur(0px)' },
 }
 
-const TRANSITION_SECTION = {
-  duration: 0.9,
-}
+const TRANSITION_SECTION = { duration: 0.9 }
 
-type ProjectImageProps = {
-  src: string
-}
-
-const MouseIcon = (props: SVGProps<SVGSVGElement>) => {
+// Project image dialog
+function ProjectImage({ src }: { src: string }) {
   return (
-    <svg
-      xmlns='http://www.w3.org/2000/svg'
-      width={26}
-      height={31}
-      fill='none'
-      {...props}
-    >
-      <g clipPath='url(#a)'>
-        <path
-          fill={'#fffff'}
-          fillRule='evenodd'
-          stroke={'#fff'}
-          strokeLinecap='square'
-          strokeWidth={2}
-          d='M21.993 14.425 2.549 2.935l4.444 23.108 4.653-10.002z'
-          clipRule='evenodd'
-        />
-      </g>
-      <defs>
-        <clipPath id='a'>
-          <path fill={'#fffff'} d='M0 0h26v31H0z' />
-        </clipPath>
-      </defs>
-    </svg>
-  );
-};
-
-function ProjectImage({ src }: ProjectImageProps) {
-
-  return (
-    
     <MorphingDialog
-      transition={{
-        type: 'spring',
-        bounce: 0,
-        duration: 0.3,
-      }}
+      transition={{ type: 'spring', bounce: 0, duration: 0.3 }}
     >
-
       <MorphingDialogTrigger>
-
-          <img
-            src={src}
-            alt="Project preview"
-            className="w-full h-full object-cover sm:h-100px"
-          />
-
+        <img
+          src={src}
+          alt="Project preview"
+          className="w-full h-full object-cover sm:h-100px"
+        />
       </MorphingDialogTrigger>
     </MorphingDialog>
   )
 }
 
-
+// Social link with subtle HUD feel
 function MagneticSocialLink({
   children,
   link,
@@ -117,25 +59,23 @@ function MagneticSocialLink({
   link: string
 }) {
   return (
-    <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
+    <Magnetic springOptions={{ bounce: 0 }} intensity={0.25}>
       <a
         href={link}
-        className="group relative inline-flex shrink-0 items-center gap-[1px] rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
+        className="group relative inline-flex items-center gap-1 rounded-full border border-zinc-700/50 bg-zinc-900 px-3 py-1.5 text-xs uppercase tracking-widest text-zinc-200 transition-colors duration-200 hover:border-cyan-500/50 hover:text-cyan-400"
       >
         {children}
         <svg
-          width="15"
-          height="15"
+          width="14"
+          height="14"
           viewBox="0 0 15 15"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="h-3 w-3"
+          className="h-3 w-3 text-cyan-400 opacity-70 group-hover:opacity-100"
         >
           <path
-            d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
+            d="M3.6 11.35c-.2-.2-.2-.52 0-.71L10.3 4H6c-.28 0-.5-.22-.5-.5S5.72 3 6 3h5.5c.14 0 .26.05.35.15.1.1.15.22.15.35V9c0 .28-.22.5-.5.5s-.5-.22-.5-.5V4.7L4.35 11.35a.5.5 0 0 1-.71 0z"
             fill="currentColor"
-            fillRule="evenodd"
-            clipRule="evenodd"
           ></path>
         </svg>
       </a>
@@ -144,7 +84,8 @@ function MagneticSocialLink({
 }
 
 export default function Personal() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0)
+
   return (
     <motion.main
       className="space-y-24"
@@ -153,89 +94,57 @@ export default function Personal() {
       animate="visible"
     >
 
-      {/*}
+      {/* Projects */}
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
+        className="pt-10"
       >
-        <div className="flex-1 border-b border-zinc-600 pb-10">
-          <p className="text-zinc-600 dark:text-zinc-400">
-            Hey, super glad you're here! Peruse around, this is where my portfolio and interests live.
-            <br/> <br/> I attended <a href='https://www.trinity.edu/' target='_blank' className='dark:text-zinc-200'>Trinity University</a> 
-            &nbsp;for my <i>Computer Science</i> undergrad and the <a href='https://www.washington.edu/' target='_blank' className='dark:text-zinc-200'> University of Washington </a> for my <br/> <i>Masters in Human Computer Interaction + Design. </i>
-          </p>
-        </div>
-      </motion.section>
-      */}
-      {/*transition panel*/}
-      
+        <h3 className="mb-5 pl-2 text-xs font-semibold tracking-widest uppercase border-l-4 border-cyan-600/60 text-zinc-700 dark:text-zinc-300">
+          Selected Projects_
+        </h3>
 
-      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION} className="pt-25">
-        <h3 className="mb-5 text-lg font-medium">Selected Projects_</h3>
-
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 ">
+        <div className="grid grid-cols-1 gap-6">
           {PROJECTS.map((project) => (
-            <div key={project.name} className="space-y-2 grayscale-100 hover:grayscale-0 duration-300 transition-all">
+            <div key={project.name} className="transition-all duration-300 grayscale hover:grayscale-0">
               <motion.a
                 href={project.link}
                 target="_blank"
                 rel="noreferrer"
                 aria-label={`Open ${project.name}`}
-                className="  block group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 border border-zinc-200/60 dark:border-zinc-800/60 "
+                className="block group border border-zinc-700/50  overflow-hidden bg-gradient-to-br from-zinc-950/80 to-zinc-900/40"
                 whileHover={{ scale: 1.02, y: -1 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                transition={{ type: "spring", stiffness: 250, damping: 20 }}
               >
-
-                <motion.div
-                  className="relative overflow-hidden bg-zinc-50/40 ring-1 ring-inset ring-zinc-200/50 
-                            dark:bg-zinc-950/40 dark:ring-zinc-800/50 lg:h-100 "
-                >
-                  <div className='h-100px'>
-                    <ProjectImage src={project.image}/>
+                <motion.div className="relative ring-1 ring-zinc-800/50">
+                  <div className="h-100px">
+                    <ProjectImage src={project.image} />
                   </div>
-                 
 
-                  <div
-                    className="
-                      absolute bottom-0 left-0 w-full 
-                      p-6 flex gap-1.5 flex-col justify-center
-                      bg-rose-600 
-                    "
-                  >
-                    <h4 className=" text-3xl font-bold text-zinc-100 ">
+                  <div className="absolute bottom-0 left-0 w-full p-5 bg-gradient-to-t from-zinc-950/90 via-zinc-900/60 to-transparent">
+                    <h4 className="text-2xl font-bold text-cyan-400 tracking-tight">
                       {project.name}
                     </h4>
-                    <p className="  text-zinc-100">{project.description}</p>
-                    
-                    {/* HOVER ARROW (east) */}
-                      <motion.div
-                        className="
-                          absolute right-6 top-1/2 -translate-y-0 -translate-x-3
-                          opacity-0 group-hover:opacity-100 transition-opacity duration-300
-                          pointer-events-none
-                        "
-                        // smooth left-right wiggle
-                        animate={{ x: [0, 8, 0] }}
-                        transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut' }}
-                        style={{ willChange: 'transform' }}
-                      >
-                        <svg
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth={1.5}
-                          strokeLinecap="square"
-                          strokeLinejoin="inherit"
-                          aria-hidden="true"
-                          className="w-7 h-7 text-zinc-100 mix-blend-exclusion"
-                        >
-                          {/* ArrowRight: line + chevron */}
-                          <path d="M4 12h14" />
-                          <path d="M13 5l7 7-7 7" />
-                        </svg>
-                      </motion.div>
-                  </div>
+                    <p className="text-sm text-zinc-300">{project.description}</p>
 
+                    <motion.div
+                      className="absolute right-6 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      animate={{ x: [0, 6, 0] }}
+                      transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={1.2}
+                        strokeLinecap="square"
+                        className="w-5 h-5 text-cyan-400"
+                      >
+                        <path d="M4 12h14" />
+                        <path d="M13 5l7 7-7 7" />
+                      </svg>
+                    </motion.div>
+                  </div>
                 </motion.div>
               </motion.a>
             </div>
@@ -243,108 +152,62 @@ export default function Personal() {
         </div>
       </motion.section>
 
-    <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
-        <h3 className="mb-5 text-lg font-medium">Selected Mutlimedia_</h3>
+      {/* Multimedia */}
+      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+        <h3 className="mb-5 pl-2 text-xs font-semibold tracking-widest uppercase border-l-4 border-cyan-600/60 text-zinc-700 dark:text-zinc-300">
+          Selected Multimedia_
+        </h3>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2  ">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {VIDEOS.map((video) => (
-            <div key={video.name} className="space-y-2 grayscale-100 hover:grayscale-0 duration-300 transition-all">
-              <motion.a
-                href={video.link}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={`Open ${video.name}`}
-                className="  block group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-zinc-500 border border-zinc-200/60 dark:border-zinc-800/60 "
-                whileHover={{ scale: 1.05, y: -1 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                  <div className="p-6 bg-zinc-950 hover:bg-neutral-800 transition-all ease-in">
-                    <div className='flex flex-col gap-1.5 w-1/2'>
-                      <div>
-                        <h4 className=" text-3xl font-bold text-zinc-100">
-                          {video.name}
-                        </h4>
-                      <div>
-                        <h4 className="text-rose-500">+ {video.id} </h4>
-                      </div>
-                      </div>
-                      <div className='bottom-10  '>
-                        <p className="  text-rose-500 ">{video.description}</p>
-                      </div>
-                      <div>
-                        <h4 className="text-zinc-100 ">
-                          _
-                        </h4>
-                      </div>
-                    </div>
-
-                    <div>
-                    {/* HOVER ARROW (east) */}
-                      <motion.div
-                        className="
-                          absolute right-6 top-1/2 -translate-x-3 -translate-y-3
-                          opacity-0 group-hover:opacity-100 transition-opacity duration-300
-                          pointer-events-none
-                        "
-                        // smooth left-right wiggle
-                        animate={{ x: [0, 8, 0] }}
-                        transition={{ duration: 0.9, repeat: Infinity, ease: 'easeInOut' }}
-                        style={{ willChange: 'transform' }}
-                      >
-                        <svg
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth={1.5}
-                          strokeLinecap="square"
-                          strokeLinejoin="inherit"
-                          aria-hidden="true"
-                          className="w-7 h-7 text-zinc-100 mix-blend-exclusion"
-                        >
-                          {/* ArrowRight: line + chevron */}
-                          <path d="M4 12h14" />
-                          <path d="M13 5l7 7-7 7" />
-                        </svg>
-                      </motion.div>
-                      </div>
-                  </div>
-              </motion.a>
-            </div>
+            <motion.a
+              key={video.name}
+              href={video.link}
+              target="_blank"
+              rel="noreferrer"
+              className="group block border border-zinc-700/50  overflow-hidden bg-zinc-950/80 hover:bg-zinc-900/80 transition-all"
+              whileHover={{ scale: 1.03, y: -1 }}
+              transition={{ type: "spring", stiffness: 250, damping: 20 }}
+            >
+              <div className="p-6 flex flex-col gap-1.5">
+                <h4 className="text-xl font-bold text-cyan-400">{video.name}</h4>
+                <p className="text-rose-500 text-sm">+ {video.id}</p>
+                <p className="text-sm text-zinc-300">{video.description}</p>
+              </div>
+            </motion.a>
           ))}
         </div>
       </motion.section>
-      
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-5 text-lg font-medium">Work Experience_</h3>
-        <div className="flex flex-col space-y-2">
+
+      {/* Work Experience */}
+      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+        <h3 className="mb-5 pl-2 text-xs font-semibold tracking-widest uppercase border-l-4 border-cyan-600/60 text-zinc-700 dark:text-zinc-300">
+          Work Experience_
+        </h3>
+
+        <div className="flex flex-col space-y-3">
           {WORK_EXPERIENCE.map((job) => (
             <motion.a
-              whileHover={{ scale: 1.03 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 20 }}
-              className="relative overflow-hidden  bg-zinc-300/30 p-[1px] dark:bg-zinc-600/30"
+              key={job.id}
               href={job.link}
               target="_blank"
               rel="noopener noreferrer"
-              key={job.id}
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 250, damping: 20 }}
+              className="relative border border-zinc-700/50 overflow-hidden bg-gradient-to-br from-zinc-950/80 to-zinc-900/60"
             >
               <Spotlight
-                className={`from-zinc-900 via-zinc-800 to-zinc-700 blur-3xl dark:from-${job.color} dark:via-${job.color} dark:to-${job.color}`}
-                size={500}
+                className={`from-zinc-900 via-zinc-800 to-zinc-700 blur-0xl dark:from-${job.color} dark:via-${job.color} dark:to-${job.color}`}
+                size={400}
               />
-            <div className={`relative h-full w-full bg-white p-4 dark:bg-${job.bgColor} `}>
-                <div className="relative flex w-full flex-row justify-between">
+              
+              <div className="relative p-4">
+                <div className="flex w-full justify-between">
                   <div>
-                    <h4 className="font-normal dark:text-zinc-100">
-                      {job.title}
-                    </h4>
-                    <p className="text-zinc-500 dark:text-zinc-400">
-                      {job.company}
-                    </p>
+                    <h4 className="font-semibold text-zinc-100">{job.title}</h4>
+                    <p className="text-sm text-zinc-400">{job.company}</p>
                   </div>
-                  <p className="text-zinc-600 dark:text-zinc-400">
+                  <p className="text-sm text-zinc-500">
                     {job.start} - {job.end}
                   </p>
                 </div>
@@ -353,63 +216,26 @@ export default function Personal() {
           ))}
         </div>
       </motion.section>
-{/*
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-3 text-lg font-medium">Blog_</h3>
-        <div className="flex flex-col space-y-0">
-          <AnimatedBackground
-            enableHover
-            className="h-full w-full bg-zinc-100 dark:bg-zinc-900/80"
-            transition={{
-              type: 'spring',
-              bounce: 0,
-              duration: 0.4,
-            }}
-          >
-            
-            {BLOG_POSTS.map((post) => (
-              <Link
-                key={post.uid}
-                className="-mx-3 px-3 py-3"
-                href={post.link}
-                data-id={post.uid}
-              >
-                <div className="flex flex-col space-y-1">
-                  <h4 className="font-normal dark:text-zinc-100">
-                    {post.title}
-                  </h4>
-                  <p className="text-zinc-500 dark:text-zinc-600">
-                    {post.description}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </AnimatedBackground>
-        </div>
-      </motion.section>
-*/}
-      <motion.section
-        variants={VARIANTS_SECTION}
-        transition={TRANSITION_SECTION}
-      >
-        <h3 className="mb-5 text-lg font-medium">Connect_</h3>
-        <p className="mb-5 text-zinc-600 dark:text-zinc-400">
-          Feel free to contact me at{' '}
-          <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>
+
+      {/* Connect */}
+      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
+        <h3 className="mb-5 pl-2 text-xs font-semibold tracking-widest uppercase border-l-4 border-cyan-600/60 text-zinc-700 dark:text-zinc-300">
+          Connect_
+        </h3>
+        <p className="mb-5 text-sm text-zinc-500 dark:text-zinc-400">
+          Contact me at{' '}
+          <a className="underline text-cyan-400" href={`mailto:${EMAIL}`}>
             {EMAIL}
           </a>
         </p>
-        <div className="flex items-center justify-start space-x-3">
+        <div className="flex items-center gap-3">
           {SOCIAL_LINKS.map((link) => (
             <MagneticSocialLink key={link.label} link={link.link}>
               {link.label}
             </MagneticSocialLink>
           ))}
         </div>
-       </motion.section>
-      </motion.main>
+      </motion.section>
+    </motion.main>
   )
 }

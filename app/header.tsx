@@ -19,12 +19,12 @@ export function Header() {
         <div className='flex flex-col space-y-4'>
           <header className="mb-8 flex items-center justify-between">
             <div className='flex flex-col gap-2'>
-              <Link href="/" className="md:text-7xl text-black dark:text-white font-bold text-3xl ">
+              <Link href="/" className="md:text-7xl text-black dark:text-white font-bold text-4xl ">
                 Hi, I'm Caleb_
               </Link>
               <TextScramble
                 duration={1}
-                className="text-zinc-600 dark:text-white"
+                className="text-zinc-600 dark:text-white md:text-base text-xs"
               >
                 Product Designer and Software Engineer
               </TextScramble>

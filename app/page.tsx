@@ -170,12 +170,12 @@ export default function Personal() {
       {/*transition panel*/}
       
 
-      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION} className="pt-25">
-        <h3 className="mb-5 text-lg font-medium">Selected Projects_</h3>
+      <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION} className="pt-6">
+        <h3 className="mb-5 text-lg font-medium border-l-4 pl-2 ">Selected Projects</h3>
 
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-1 ">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-1  ">
           {PROJECTS.map((project) => (
-            <div key={project.name} className="space-y-2 grayscale-100 hover:grayscale-0 duration-300 transition-all">
+            <div key={project.name} className="space-y-2 grayscale-100 hover:grayscale-0 duration-300 transition-all ">
               <motion.a
                 href={project.link}
                 target="_blank"
@@ -187,10 +187,10 @@ export default function Personal() {
               >
 
                 <motion.div
-                  className="relative overflow-hidden bg-zinc-50/40 ring-1 ring-inset ring-zinc-200/50 
-                            dark:bg-zinc-950/40 dark:ring-zinc-800/50 lg:h-100 "
+                  className="relative overflow-hidden bg-zinc-50/40 ring-1 ring-inset ring-zinc-200/50 h-88 
+                            dark:bg-zinc-950/40 dark:ring-zinc-800/50  "
                 >
-                  <div className='h-100px'>
+                  <div >
                     <ProjectImage src={project.image}/>
                   </div>
                  
@@ -244,7 +244,7 @@ export default function Personal() {
       </motion.section>
 
     <motion.section variants={VARIANTS_SECTION} transition={TRANSITION_SECTION}>
-        <h3 className="mb-5 text-lg font-medium">Selected Mutlimedia_</h3>
+        <h3 className="mb-5 text-lg font-medium border-l-4 pl-2">Selected Mutlimedia_</h3>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2  ">
           {VIDEOS.map((video) => (
@@ -318,7 +318,7 @@ export default function Personal() {
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
       >
-        <h3 className="mb-5 text-lg font-medium">Work Experience_</h3>
+        <h3 className="mb-5 text-lg font-medium border-l-4 pl-2">Work Experience_</h3>
         <div className="flex flex-col space-y-2">
           {WORK_EXPERIENCE.map((job) => (
             <motion.a
@@ -394,8 +394,9 @@ export default function Personal() {
       <motion.section
         variants={VARIANTS_SECTION}
         transition={TRANSITION_SECTION}
+        className={"bg-neutral-800 p-6 border-zinc-700 border"}
       >
-        <h3 className="mb-5 text-lg font-medium">Connect_</h3>
+        <h3 className="mb-5 dark:text-white font-bold text-3xl ">Connect_</h3>
         <p className="mb-5 text-zinc-600 dark:text-zinc-400">
           Feel free to contact me at{' '}
           <a className="underline dark:text-zinc-300" href={`mailto:${EMAIL}`}>

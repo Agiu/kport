@@ -210,7 +210,7 @@ export const TransitionPanelInfo = [
       title: 'About_',
       subtitle: 'Hobbyist & Creative',
       content:
-        'Hey There! This is my entire portfolio + few hobby stuff. This website was inspired heavily by cyberpunk-like user interfaces, so take a gander?',
+        'Hey There! This is my entire portfolio + few hobby stuff. This website was inspired heavily by cyberpunk-like user interfaces.',
     },
     {
       title: 'Education_',

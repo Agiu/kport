@@ -68,37 +68,37 @@ export const PROJECTS: Project[] = [
 
 export const VIDEOS: Video[] = [
   {
-    name: 'blah 1',
+    name: 'Jekyllyde',
     description:
-      'Design and programming work created at the University of Sydney',
-    link: 'https://www.figma.com/deck/9hiIS5UvcTzBjwu7Hdkz7P/Trinity-UX-Redesign?node-id=1-42&t=SwMKkwf4R8OScebm-1',
+      'For a music production class, witness two sides of a composer.',
+    link: 'https://youtu.be/OY9rGIfXh1I',
     image:
       '/p_1.JPG',
-    id: 'Video 1',
+    id: 'Music',
   },
   {
-    name: 'blah 2',
-    description: 'Sitewide search implementation needed a new look',
-    link: 'https://www.figma.com/design/GXBBaodKgwj4SOgDDWU8sz/Trinity-Design-Work?node-id=8-144&t=wtRXNndwh1NrzBnX-1',
+    name: 'Demo Reel',
+    description: 'This is an old one, a little different. But showcases my work.',
+    link: 'https://youtu.be/iBr7-u9myAw',
     image:
       '/p_2.png',
-    id: 'Video 2',
+    id: 'Video',
   },
     {
-    name: 'blah 3',
-    description: 'Design and programming work created at the University of Sydney',
-    link: 'https://youtu.be/jLWcoMTBHGM',
+    name: 'The Tour | Preview 4',
+    description: 'A video test with some anamorphic lenses, showing blue hour near a california beach',
+    link: 'https://youtu.be/dxU80L4Nn88',
     image:
       '/p_3.JPG',
-    id: 'Video 3',
+    id: 'Cinematography',
   },
       {
-    name: 'blah 4',
-    description: 'Design and programming work created at the University of Sydney',
-    link: 'https://youtu.be/jLWcoMTBHGM',
+    name: 'The Tour | Preview 3',
+    description: 'Follow around LA with my buddy Ethan.',
+    link: 'https://www.youtube.com/watch?v=R-dcswydnPk',
     image:
       '/p_3.JPG',
-    id: 'Video 4',
+    id: 'Vibe',
   },
 
 ]
@@ -210,7 +210,7 @@ export const TransitionPanelInfo = [
       title: 'About_',
       subtitle: 'Hobbyist & Creative',
       content:
-        'Hey There! This is my entire portfolio and a few hobby stuff to express my interests. This website was inspired heavily by cyberpunk-like user interfaces, so take a gander?',
+        'Hey There! This is my entire portfolio + few hobby stuff. This website was inspired heavily by cyberpunk-like user interfaces, so take a gander?',
     },
     {
       title: 'Education_',
@@ -218,7 +218,7 @@ export const TransitionPanelInfo = [
       content: '',
       list: [ 'University of Washington: MHCI+D', 
               'Trinity University: BS in Computer Science',
-              'University of Sydney: Study Abroad (HCI Related)'
+              'University of Sydney: Study Abroad (HCI)'
       ],
     },
     {

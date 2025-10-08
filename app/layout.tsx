@@ -56,7 +56,7 @@ export default function RootLayout({
             <div className="relative mx-auto w-full max-w-250 flex-1 px-4 ">
               
               {/* Subtle defense-style border frame */}
-              <div className="relative  border-zinc-800 border-l-1 border-r-1 pt-20">
+              <div className="relative  border-zinc-800 border-l-1 border-r-1 pt-15">
                 
                 {/* Corner accents */}
 

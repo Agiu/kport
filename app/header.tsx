@@ -98,7 +98,7 @@ export function Header() {
             </div>
           </div>
         </Cursor>
-          <Image src="/Seattle.png" width={500} height={500} alt="Picture of the author" />
+          <Image src="/Seattle.png" width={500} height={320} alt="Picture of the author" />
         </div>
       </header>
   )
